@@ -16,3 +16,24 @@ services:
       context: ./spring-eureka
     ports:
       - "8761:8761"
+
+  spring-svc-a:
+    build:
+      context: ./spring-svc-a
+    ports:
+      - "8701:8701"
+    environment:
+      - EUREKA_DEFAULT_ZONE=http://spring-eureka:8761/eureka/
+    depends_on:
+      - spring-eureka
+      - spring-svc-b
+
+  spring-svc-b:
+    build:
+      context: ./spring-svc-b
+    ports:
+      - "8702:8702"
+    environment:
+      - EUREKA_DEFAULT_ZONE=http://spring-eureka:8761/eureka/
+    depends_on:
+      - spring-eureka

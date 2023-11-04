@@ -1,0 +1,14 @@
+server:
+  port: 8702
+
+spring:
+  application:
+    name: spring-svc-b
+
+eureka:
+  client:
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: ${EUREKA_DEFAULT_ZONE}
+    healthcheck:
+      enabled: true
