@@ -1,0 +1,16 @@
+server:
+  port: 8765
+
+spring:
+  application:
+    name: admin-service
+
+eureka:
+  client:
+    registryFetchIntervalSeconds: 5
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${EUREKA_DEFAULT_ZONE}
+  instance:
+    hostname: localhost
